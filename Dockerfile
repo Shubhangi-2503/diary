@@ -4,7 +4,7 @@ WORKDIR /src
 
 # 2. Copy the project file and "Restore" (downloading NuGet packages)
 # We do this first so Docker doesn't re-download everything if you only change code
-COPY ["Dairy.csproj", "./"]
+COPY ["Dairy/Dairy.csproj", "./"]
 RUN dotnet restore "Dairy.csproj"
 
 # 3. Copy every other file from your folder into the container
