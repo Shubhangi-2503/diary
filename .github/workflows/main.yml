@@ -22,6 +22,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GH_TOKEN }}
+      - name: Prepare Lowercase Variables
+        id: prep
+        run: |
+          # Takes your username (e.g., "MyName") and turns it into "myname"
+          echo "owner_lc=${OWNER,,}" >>${GITHUB_OUTPUT}
+        env:
+          OWNER: ${{ github.repository_owner }}     
 
       - name: Build and Push
         uses: docker/build-push-action@v6
@@ -29,4 +36,4 @@ jobs:
           context: ./diary
           push: true
           # The name will be: ghcr.io/your-github-username/dairy-app:latest
-          tags: ghcr.io/${{ github.repository_owner }}/diary-app:latest
+          tags: ghcr.io/${{ steps.prep.outputs.owner_lc }}/diary-app:latest
