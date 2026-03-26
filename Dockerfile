@@ -11,7 +11,13 @@ RUN dotnet restore "Diary.csproj"
 COPY . .
 
 # 4. Compile the app into a folder called /app/publish
-RUN dotnet publish "Diary.csproj" -c Release -o /app/publish
+
+#Stage1: Build build the app
+RUN dotnet build "Diary/Diary.csproj" -c Release -o /app/build
+
+# Stage 2: Publish 
+FROM build AS publish
+RUN dotnet publish "Diary/Diary.csproj" -c Release -o /app/publish
 
 # 5. Use the .NET 9 Runtime (The "Serving Plate")
 # This image is much smaller because it doesn't contain the compiler
@@ -20,7 +26,7 @@ WORKDIR /app
 EXPOSE 8080
 
 # 6. Copy only the finished "Published" files from the build stage
-COPY --from=build /app/publish .
+COPY --from=publish /app/publish .
 
 # 7. Start the app!
 ENTRYPOINT ["dotnet", "Diary.dll"]
