@@ -4,6 +4,7 @@ using Diary.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diary.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260327003736_InsertData")]
+    partial class InsertData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +51,7 @@ namespace Diary.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdatedOn")
+                    b.Property<DateTime>("UpdatedOn")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -60,28 +63,31 @@ namespace Diary.Migrations
                         {
                             Id = 1,
                             Content = "This is the content of the first diary entry.",
-                            CreatedOn = new DateTime(2026, 5, 20, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2026, 3, 27, 0, 37, 35, 922, DateTimeKind.Local).AddTicks(7225),
                             Disabled = false,
                             Enabled = true,
-                            Title = "First Entry"
+                            Title = "First Entry",
+                            UpdatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            Content = "This is the content of the second diary entry",
-                            CreatedOn = new DateTime(2025, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Content = "This is the content of the second diary entry.",
+                            CreatedOn = new DateTime(2026, 3, 27, 0, 37, 35, 922, DateTimeKind.Local).AddTicks(8560),
                             Disabled = false,
                             Enabled = true,
-                            Title = "Second Entry"
+                            Title = "Second Entry",
+                            UpdatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             Content = "This is the content of the Third diary entry.",
-                            CreatedOn = new DateTime(2026, 5, 20, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2026, 3, 27, 0, 37, 35, 922, DateTimeKind.Local).AddTicks(8567),
                             Disabled = false,
                             Enabled = true,
-                            Title = "Third Entry"
+                            Title = "Third Entry",
+                            UpdatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 #pragma warning restore 612, 618

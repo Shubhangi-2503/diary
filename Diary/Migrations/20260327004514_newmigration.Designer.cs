@@ -4,6 +4,7 @@ using Diary.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diary.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260327004514_newmigration")]
+    partial class newmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,7 +63,7 @@ namespace Diary.Migrations
                         {
                             Id = 1,
                             Content = "This is the content of the first diary entry.",
-                            CreatedOn = new DateTime(2026, 5, 20, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2026, 3, 27, 0, 45, 13, 870, DateTimeKind.Local).AddTicks(3679),
                             Disabled = false,
                             Enabled = true,
                             Title = "First Entry"
@@ -68,8 +71,8 @@ namespace Diary.Migrations
                         new
                         {
                             Id = 2,
-                            Content = "This is the content of the second diary entry",
-                            CreatedOn = new DateTime(2025, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Content = "This is the content of the second diary entry.",
+                            CreatedOn = new DateTime(2026, 3, 27, 0, 45, 13, 870, DateTimeKind.Local).AddTicks(5125),
                             Disabled = false,
                             Enabled = true,
                             Title = "Second Entry"
@@ -78,7 +81,7 @@ namespace Diary.Migrations
                         {
                             Id = 3,
                             Content = "This is the content of the Third diary entry.",
-                            CreatedOn = new DateTime(2026, 5, 20, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2026, 3, 27, 0, 45, 13, 870, DateTimeKind.Local).AddTicks(5131),
                             Disabled = false,
                             Enabled = true,
                             Title = "Third Entry"

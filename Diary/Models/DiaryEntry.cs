@@ -9,7 +9,7 @@ namespace Diary.Models
         public bool Disabled { get; set; }
         [Required] [MaxLength(100)]
         public DateTime CreatedOn { get; set; } = DateTime.Now;
-        public DateTime UpdatedOn { get; set; }
+        public DateTime? UpdatedOn { get; set; }
         [Required]
         public string Title { get; set; } = string.Empty;
         [Required]
