@@ -1,5 +1,4 @@
 ﻿using Diary.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace Diary.Data
