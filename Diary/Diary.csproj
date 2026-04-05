@@ -15,5 +15,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Diary.Data\Diary.Data.csproj" />
+    <ProjectReference Include="..\Diary.Models\Diary.Models.csproj" />
+  </ItemGroup>
+
 </Project>
                                                                                                                                                                                  
