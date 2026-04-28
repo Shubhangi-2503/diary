@@ -13,13 +13,13 @@ namespace Diary.Controllers
         }
         public IActionResult Index()
         {
-            List<Models.DiaryEntry> diaryEntries = _db.DiaryEntries.ToList();
-            return View(diaryEntries);
+            //List<Models.DiaryEntry> diaryEntries = _db.DiaryEntries.ToList();
+            return View();
         }
 
         public IActionResult Create()
         {
-            List<Models.DiaryEntry> diaryEntries = _db.DiaryEntries.ToList();
+            //List<Models.DiaryEntry> diaryEntries = _db.DiaryEntries.ToList();
             return View();
         }
     }

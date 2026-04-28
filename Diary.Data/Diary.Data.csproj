@@ -19,4 +19,13 @@
     <ProjectReference Include="..\Diary.Models\Diary.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SqlScripts\001_CreateStoredProcedures.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SqlScripts\002_GetDiaryEntries.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
