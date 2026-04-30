@@ -1,12 +1,16 @@
 using Diary.Data;
+using Diary.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Diary.Data.Repositories;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        x => x.MigrationsAssembly("Diary.Data")));
+builder.Services.AddScoped<IDiaryRepository, DiaryRepository>();
 
 var app = builder.Build();
 

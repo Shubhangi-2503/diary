@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="Diary.Data/Diary.Data.csproj" Id="77e09a84-ef6c-48db-8874-492655f11e09" />
   <Project Path="Diary.Models/Diary.Models.csproj" Id="0e6618f6-66d9-4ef9-bb31-c663ec03032d" />
-  <Project Path="Diary/Diary.csproj" />
+  <Project Path="Diary/Diary.App.csproj" />
 </Solution>
