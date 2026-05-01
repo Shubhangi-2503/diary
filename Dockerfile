@@ -4,8 +4,13 @@ WORKDIR .
 
 # 2. Copy the project file and "Restore" (downloading NuGet packages)
 # We do this first so Docker doesn't re-download everything if you only change code
-COPY ["Diary/Diary.csproj", "./"]
-RUN dotnet restore "Diary.csproj"
+# 1. Copy only .csproj files first to cache dependencies
+COPY ["Diary.App/Diary.App.csproj", "Diary.App/"]
+COPY ["Diary.Data/Diary.Data.csproj", "Diary.Data/"]
+COPY ["Diary.Models/Diary.Models.csproj", "Diary.Models/"]
+
+RUN dotnet restore "Diary.App/Diary.App.csproj"
+
 
 # 3. Copy every other file from your folder into the container
 COPY . .
@@ -13,7 +18,8 @@ COPY . .
 # 4. Compile the app into a folder called /app/publish
 
 #Stage1: Build build the app
-RUN dotnet build "Diary/Diary.csproj" -c Release -o /app/build
+RUN dotnet build "Diary.App/Diary.App.csproj" -c Release -o /app/build
+
 
 # Stage 2: Publish 
 FROM build AS publish
