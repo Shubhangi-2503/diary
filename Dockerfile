@@ -17,7 +17,7 @@ RUN dotnet build "Diary/Diary.csproj" -c Release -o /app/build
 
 # Stage 2: Publish 
 FROM build AS publish
-RUN dotnet publish "Diary/Diary.csproj" -c Release -o /app/publish
+RUN dotnet publish "Diary.App/Diary.App.csproj" -c Release -o /app/publish
 
 # 5. Use the .NET 9 Runtime (The "Serving Plate")
 # This image is much smaller because it doesn't contain the compiler
@@ -29,4 +29,4 @@ EXPOSE 8080
 COPY --from=publish /app/publish .
 
 # 7. Start the app!
-ENTRYPOINT ["dotnet", "Diary.dll"]
+ENTRYPOINT ["dotnet", "Diary.App.dll"]
