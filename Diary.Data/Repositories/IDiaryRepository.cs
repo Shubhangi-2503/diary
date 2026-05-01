@@ -9,7 +9,10 @@ namespace Diary.Data.Repositories
 {
     public interface IDiaryRepository
     {
-        Task<List<DiaryEntry>> GetAllEntriesAsync();
+        Task<List<DiaryEntry>> GetEntriesAsync(int? id = null);
+        Task<(string Status, string Message)> AddEntryAsync(DiaryEntry entry);
+        Task<(string Status, string Message)> UpdateEntryAsync(DiaryEntry entry);
+        Task<(string Status, string Message)> DeleteEntryAsync(int id);
 
     }
 }

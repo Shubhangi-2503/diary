@@ -1,7 +1,0 @@
-﻿-- READ PROCEDURE
-CREATE PROCEDURE sp_GetAllDiaryEntries
-AS
-BEGIN
-    SELECT * FROM DiaryEntries;
-END
-GO

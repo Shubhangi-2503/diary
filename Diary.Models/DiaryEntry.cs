@@ -10,6 +10,7 @@ namespace Diary.Models
         [Column(Order = 1)]
         public bool Enabled { get; set; }
         [Column(Order = 2)]
+        //[Required(ErrorMessage = "Please enter Date!")]
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         [Column(Order = 3)] 
         [Required]

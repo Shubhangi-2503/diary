@@ -20,10 +20,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="SqlScripts\001_CreateStoredProcedures.sql">
+    <None Update="SqlScripts\CreateStoredProcedures.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="SqlScripts\002_GetDiaryEntries.sql">
+    <None Update="SqlScripts\DeleteDiaryEntry.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SqlScripts\UpdateDiaryEntry.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SqlScripts\GetDiaryEntries.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
